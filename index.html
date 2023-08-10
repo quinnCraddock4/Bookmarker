@@ -8,16 +8,15 @@
     <header>Welcome to bookmarsks+</header>
 </head>
 <body>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for bookmarks">
-
+    <label for="filterMenu">Sort by:</label>
+    <select name="filterMenu" id="filterMenu">
+        <option value="url" selected>Url</option>
+        <option value="name">Name</option>
+        <option value="recent">Recent</option>
+        <option value="oldest">Oldest</option>
+      </select>
+    <input type="text" id="myInput" placeholder="Find Bookmarks">
 <ul id="myUL">
-    <li><a href="#">website</a></li>
-    <li><a href="#">website</a></li>
-    <li><a href="#">website</a></li>
-    <li><a href="#">website</a></li>
-    <li><a href="#">website</a></li>
-    <li><a href="#">website</a></li>
-    <li><a href="#">website</a></li>
 </ul>
 <script src='main.js'></script>
 </body>
