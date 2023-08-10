@@ -16,10 +16,10 @@
     margin: 0;
   }
   
-  #myUL li a {
-    border: 1px solid #ddd; /* Add a border to all links */
+  #myUL li a { /* Add a border to all links */
     margin-top: -1px; /* Prevent double borders */
     background-color: #f6f6f6; /* Grey background color */
+    background: rgba(76, 175, 80, 0);
     padding: 12px; /* Add some padding */
     text-decoration: none; /* Remove default text underline */
     font-size: 18px; /* Increase the font-size */

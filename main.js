@@ -1,10 +1,22 @@
 function makeIndent(indentLength) {
     return ".".repeat(indentLength);
   }
+  function addToPage(bookmarkItem){
+    const cooUl = document.querySelector('div');
+    //cooUl.setAttribute('onclick',bookmarkItem.url)
+    const newItem = document.createElement("button")
+    newItem.innerText = bookmarkItem.title
+    newItem.setAttribute('onclick',"location.href=" + bookmarkItem.url)
+    cooUl.append(newItem)
+  }
+   
   
   function logItems(bookmarkItem, indent) {
+    console.log(bookmarkItem)
     if (bookmarkItem.url) {
-      console.log(makeIndent(indent) + bookmarkItem.title);
+      addToPage(bookmarkItem);
+      // create button
+      // button id button
     } else {
       console.log(`${makeIndent(indent)}Folder`);
       indent++;
@@ -18,7 +30,6 @@ function makeIndent(indentLength) {
   }
   
   function logTree(bookmarkItems) {
-    console.log(bookmarkItems)
     logItems(bookmarkItems[0], 0);
   }
   
@@ -26,5 +37,11 @@ function makeIndent(indentLength) {
     console.log(`An error: ${error}`);
   }
   
-  let gettingTree = chrome.bookmarks.getTree();
-  gettingTree.then(logTree, onRejected);
+  document.addEventListener('DOMContentLoaded', async () => {
+    let gettingTree = chrome.bookmarks.getTree();
+    gettingTree.then(logTree, onRejected);
+    const cooUl = document.querySelector('#myUL');
+    const newItem = document.createElement("li")
+    newItem.innerHTML = "<a href=>websiteDope</a>"
+    cooUl.append(newItem)
+  })
