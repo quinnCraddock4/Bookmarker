@@ -6,8 +6,17 @@ function makeIndent(indentLength) {
     const cooUl = document.querySelector('#myUL');
     const newItem = document.createElement("li")
     newItem.innerHTML = `<a href=${bookmarkItem.url}>${bookmarkItem.title}</a>`
-    newItem.addEventListener('click', () =>{
-      window.open(bookmarkItem.url)
+    newItem.addEventListener('click', (e) =>{
+      console.log(e.ctrlKey)
+      if(e.ctrlKey){
+        e.preventDefault()
+        chrome.bookmarks.remove(bookmarkItem.id)
+        newItem.innerHTML = ""
+      }
+      else if(!e.ctrlKey){
+        console.log("THIS STAMENT LITERALLY IS FALSE")
+        window.open(bookmarkItem.url)
+      }
     })
     cooUl.append(newItem)
   }
