@@ -1,3 +1,4 @@
+let bookmarkTree= null
 function makeIndent(indentLength) {
     return ".".repeat(indentLength);
   }
@@ -83,7 +84,16 @@ function makeIndent(indentLength) {
     newItem.innerHTML = "<a href=>websiteDope</a>"
     cooUl.append(newItem)
     let searchBar = document.querySelector("input")
+    let bookmarkTree= null
     console.log(searchBar)
+    let theActualTree = null
+    let treeValue = chrome.bookmarks.getTree()
+    let arrayOfBookmarks = null
+    treeValue.then((value)=>{
+      theActualTree = value
+      arrayOfBookmarks = treeToArray(theActualTree[0],0)
+      console.log(arrayOfBookmarks)
+    })
     searchBar.addEventListener("keyup", () =>{
       let filterMenu = document.getElementById("filterMenu")
       console.log(filterMenu.value + "filter")
@@ -91,7 +101,46 @@ function makeIndent(indentLength) {
         linkSort()
       }
       if(filterMenu.value === "name"){
+        console.log("tree")
+        console.log(theActualTree[0])
+        //console.log("hii")
         nameSort()
+      }
+      if(filterMenu.value ==="recent"){
+        console.log("rahhhhhhhh")
+        recentSort(arrayOfBookmarks)
       }
     })
   })
+
+  function recentSort(bookmarksArray){
+    console.log("before")
+    console.log(bookmarksArray)
+    bookmarksArray.sort((a, b) => a.dateAdded > b.dateAdded ? -1 : 1)
+    console.log("after")
+    console.log(bookmarksArray)
+    ul = document.getElementById("myUL");
+    ul.innerHTML = ""
+    for(item in bookmarksArray){
+      addToPage(bookmarksArray[item])
+    }
+  }
+   
+  function treeToArray(bookmarkItem, indent, arrayOut=[]) {
+    console.log(bookmarkItem.children)
+    if (bookmarkItem.url) {
+      console.log("item pushed")
+      arrayOut.push(bookmarkItem);
+      // create button
+      // button id button
+    } else {
+      indent++;
+    }
+    if (bookmarkItem.children) {
+      for (const child of bookmarkItem.children) {
+        treeToArray(child, indent,arrayOut);
+      }
+    }
+    indent--;
+    return arrayOut
+  }

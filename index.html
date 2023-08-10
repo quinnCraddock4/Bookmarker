@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="mystyle.css">
     <title>Document</title>
-    <header>Welcome to bookmarsks+</header>
+    <header>bookmarks+</header>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <label for="filterMenu">Sort by:</label>
+    <br> 
     <select name="filterMenu" id="filterMenu">
-        <option value="url" selected>Url</option>
-        <option value="name">Name</option>
-        <option value="recent">Recent</option>
-        <option value="oldest">Oldest</option>
+        <option value="url" class="hunter">Sort by url</option>
+        <option value="name" class="hunter">Sort by name</option>
+        <option value="recent" class="hunter">Sort by recent</option>
       </select>
+      <br>
+<!--
+seperate sort by and input box
+-->
     <input type="text" id="myInput" placeholder="Find Bookmarks">
 <ul id="myUL">
 </ul>

@@ -12,13 +12,48 @@
     border-top-right-radius:30px;
     border-bottom-left-radius:30px;
     border-bottom-right-radius:30px; 
-    text-align: left;
+    text-align: center;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    background-image: url('https://assets.stickpng.com/images/585e4ae1cb11b227491c3393.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: 5px,30px;
+  }
+  input:focus::placeholder {
+    color: transparent;
+  }
+  #myInput:hover{
+    border: 2px solid #000000;
   }
 
+  #filterMenu{
+    display: block;
+    margin: 0 auto;
+    width: 150px; 
+    text-align-last:center;
+    border-top-left-radius:30px;
+    border-top-right-radius:30px;
+    border-bottom-left-radius:30px;
+    border-bottom-right-radius:30px; 
+    color: rgb(180, 180, 180);
+    font-family: 'Comfortaa', cursive;
+    border: 1px solid #ddd
+   }
+   #filterMenu:hover{
+    border: 2px solid #000000;
+    color: black;
+   }
   ::-webkit-input-placeholder {
     text-align: center;
+    font-family: 'Comfortaa', cursive;
   }
-  
+  header{
+    text-align: center;
+    font-size: x-large;
+    font-family: 'Comfortaa', cursive;
+  }
   #myUL {
     /* Remove default list styling */
     list-style-type: none;
@@ -37,14 +72,19 @@
     padding: 12px; /* Add some padding */
     text-decoration: none; /* Remove default text underline */
     font-size: 18px; /* Increase the font-size */
-    color: black; /* Add a black text color */
+    color: rgb(180, 180, 180); /* Add a black text color */
     display: block;
     border-top-left-radius:30px;
     border-top-right-radius:30px;
     border-bottom-left-radius:30px;
     border-bottom-right-radius:30px; /* Make it into a block element to fill the whole list */
+    font-family: 'Comfortaa', cursive;
   }
-  
+  .hunter{
+    font-family: 'Comfortaa', cursive;
+  }
   #myUL li a:hover:not(.header) {
     background-color: #eee; /* Add a hover effect to all links, except for headers */
+    color: black;
+    border: 2px solid #000000;
   }
