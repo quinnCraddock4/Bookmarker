@@ -1,0 +1,14 @@
+{
+    "name": "Bookmark+",
+    "version": "1.0.0",
+    "description": "Bookmarks but better",
+    "manifest_version": 3,
+    "author": "Quinn and Jason",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Latest Covid Report"
+    },
+    "permissions": [
+        "bookmarks"
+      ]
+}
