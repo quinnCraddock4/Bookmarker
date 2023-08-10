@@ -2,11 +2,12 @@ function makeIndent(indentLength) {
     return ".".repeat(indentLength);
   }
   function addToPage(bookmarkItem){
-    const cooUl = document.querySelector('div');
-    //cooUl.setAttribute('onclick',bookmarkItem.url)
-    const newItem = document.createElement("button")
-    newItem.innerText = bookmarkItem.title
-    newItem.setAttribute('onclick',"location.href=" + bookmarkItem.url)
+    const cooUl = document.querySelector('#myUL');
+    const newItem = document.createElement("li")
+    newItem.innerHTML = `<a href=>${bookmarkItem.title}</a>`
+    newItem.addEventListener('click', () =>{
+      window.open(bookmarkItem.url)
+    })
     cooUl.append(newItem)
   }
    
